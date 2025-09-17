@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Card Glass con efecto Hover - MagtimusPro</title>
+    <meta name="description" content="Tarjeta de perfil profesional con efecto glassmorphism para Tester QA">
+    <meta name="keywords" content="Tester QA, perfil profesional, glassmorphism, tarjeta">
+    <title>R Klepache - Tester QA | Perfil Profesional</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
@@ -15,10 +19,10 @@
         <div class="triangle triangle3"></div>
     </div>
 
-    <div class="container__card">
-        <div class="card">
+    <main class="container__card">
+        <section class="card" role="article" aria-label="Tarjeta de perfil profesional">
             <div class="cover__card">
-                <img src="images/img/yo.jpg" alt="">
+                <img src="images/img/yo.jpg" alt="Foto de perfil de R Klepache - Tester QA" loading="lazy">
             </div>
             <h2>Tester QA</h2>
             <p>Objetivo principal garantizar que el producto final sea estable, 
@@ -28,9 +32,40 @@
                 <h3 class="user__name">R Klepache</h3>
                 <i>23 Diciembre</i>
             </div>
-        </div>
+            <div class="card__actions">
+                <a href="https://www.canva.com/design/DAGvtC5p8g0/9D8cv848tRum5h6nMUFl3g/view?utm_content=DAGvtC5p8g0&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h1a73f27087" target="_blank" rel="noopener noreferrer" class="btn btn--primary" aria-label="Ver resume completo">Ver más</a>
+                <a href="https://www.linkedin.com/in/raquel-maria-klepache" target="_blank" rel="noopener noreferrer" class="btn btn--secondary" aria-label="Contactar por LinkedIn">Contactar</a>
+            </div>
+        </section>
         
-    </div>
+    </main>
+
+    <script>
+        // Mejorar accesibilidad con navegación por teclado
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.btn');
+            
+            buttons.forEach(button => {
+                button.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        window.open(button.href, '_blank', 'noopener,noreferrer');
+                    }
+                });
+            });
+            
+            // Efecto de parallax suave en los triángulos
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const triangles = document.querySelectorAll('.triangle');
+                
+                triangles.forEach((triangle, index) => {
+                    const speed = 0.5 + (index * 0.1);
+                    triangle.style.transform = `translateY(${scrolled * speed}px)`;
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>
